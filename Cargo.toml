@@ -1,6 +1,6 @@
 [package]
 name = "tiberius-test"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 authors = [ "lei.zhao <oizhaolei@gmail.com>" ]
 description = "tiberius utility tools"
