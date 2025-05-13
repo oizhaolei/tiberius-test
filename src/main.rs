@@ -38,14 +38,14 @@ async fn main() -> anyhow::Result<()> {
         // 取得した件数分ループする
         for inner in val.iter() {
             println!("inner: {:?}", inner);
-            // id列の情報を取得
-            if let Some(id) = inner.get::<i32, _>("userid") {
-                print!("id = {} ", id);
-            }
-            // name列の情報を取得
-            if let Some(name) = inner.get::<&str, _>("username") {
-                println!("name = {}", name);
-            }
+            // // id列の情報を取得
+            // if let Some(id) = inner.get::<i32, _>("userid") {
+            //     print!("id = {} ", id);
+            // }
+            // // name列の情報を取得
+            // if let Some(name) = inner.get::<&str, _>("username") {
+            //     println!("name = {}", name);
+            // }
         }
     }
 
