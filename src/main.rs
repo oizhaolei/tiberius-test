@@ -2,7 +2,7 @@ use std::env;
 
 use dotenvy::dotenv;
 
-use tiberius::{AuthMethod, Client, Config, EncryptionLevel};
+use tiberius::{Client, Config };
 use tokio::net::TcpStream;
 use tokio_util::compat::TokioAsyncWriteCompatExt;
 
@@ -10,15 +10,7 @@ use tokio_util::compat::TokioAsyncWriteCompatExt;
 async fn main() -> anyhow::Result<()> {
     dotenv().expect(".env file not found");
 
-    let mut config = Config::new();
-
-    config.host(env::var("HOST")?);
-    config.port(env::var("PORT")?.parse::<u16>()?);
-    config.database(env::var("DATABASE")?);
-
-    config.authentication(AuthMethod::sql_server(env::var("DB_USER")?,env::var("DB_PASSWORD")?));
-    config.trust_cert(); // on production, it is not a good idea to do this
-    config.encryption(EncryptionLevel::NotSupported);
+    let config = Config::from_ado_string(env::var("CONN_STR")?.as_str())?;
 
     let tcp = TcpStream::connect(config.get_addr()).await?;
     tcp.set_nodelay(true)?;
