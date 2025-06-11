@@ -1,6 +1,6 @@
 [package]
 name = "tiberius-test"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2024"
 authors = [ "lei.zhao <oizhaolei@gmail.com>" ]
 description = "tiberius utility tools"
@@ -10,7 +10,7 @@ license-file = "LICENSE.txt"
 [dependencies]
 anyhow = "1.0.98"
 dotenvy = "0.15.7"
-tiberius = { version = "0.12.3", features = ["tokio", "tokio-util", "rustls"] }
+tiberius = { version = "0.12.3", features = ["tokio", "tokio-util"] }
 tokio = { version = "1.45.0", features = ["full"] }
 tokio-util = { version = "0.7.15", features = ["compat"] }
 openssl = { version = "0.10.66", features = ["vendored"] }
